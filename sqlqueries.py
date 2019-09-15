@@ -25,7 +25,7 @@ create_table_songs = """create table if not exists songs (
 );"""
 
 create_table_artists = """ create table if not exists artists(
-	artistid int auto_increment,
+	artistid text,
 	artist_name text,
 	artist_longitude text,
 	artist_latitude text,
@@ -63,6 +63,12 @@ create_table_time = """ CREATE TABLE IF NOT EXISTS time (
                             year int, 
                             weekday int)
 """
+
+song_insert = """ insert into songs values (%s,%s,%s,%s,%s) """
+artist_insert = """ insert into artists values (%s,%s,%s,%s,%s) """
+users_insert = """Insert into users values (%s,%s,%s,%s,%s)   """
+time_insert = """Insert into time values (%s,%s,%s,%s,%s,%s,%s)   """
+
 
 create_queries = [create_table_artists,create_table_songplays,create_table_songs,create_table_time,create_table_users]
 drop_queries = [drop_table_artists,drop_table_songplays,drop_table_songs,drop_table_time,drop_table_users]
